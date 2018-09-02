@@ -26,7 +26,9 @@ class MainActivity : AppCompatActivity() {
 
                 recyclerView {
                     layoutManager = LinearLayoutManager(context)
-                    adapter = ClubAdapter(items)
+                    adapter = ClubAdapter(items) {
+                        toast("Hello, ${it.name}")
+                    }
                 }
             }
         }
