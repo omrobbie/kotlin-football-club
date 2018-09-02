@@ -11,7 +11,9 @@ import org.jetbrains.anko.*
 class DetailActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        DetailActivityUI().setContentView(this)
+
+        val item = intent.getParcelableExtra<ItemData>(MainActivity.PARCELABLE_ITEM_DATA)
+        DetailActivityUI(item).setContentView(this)
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
@@ -25,7 +27,7 @@ class DetailActivity : AppCompatActivity() {
         }
     }
 
-    inner class DetailActivityUI : AnkoComponent<DetailActivity> {
+    inner class DetailActivityUI(val item: ItemData) : AnkoComponent<DetailActivity> {
         val id_view = 1
         val id_image = 2
         val id_name = 3
@@ -37,21 +39,21 @@ class DetailActivity : AppCompatActivity() {
                 view {
                     id = id_view
                     setBackgroundColor(Color.rgb(126, 203, 238))
-                }.lparams(matchParent, dip(200))
+                }.lparams(matchParent, dip(150))
 
                 imageView {
                     id = id_image
                     Glide.with(this)
-                            .load(android.R.drawable.ic_delete)
+                            .load(item.image)
                             .into(this)
                 }.lparams(dip(100), dip(100)) {
                     centerHorizontally()
-                    topMargin = dip(150)
+                    topMargin = dip(100)
                 }
 
                 textView {
                     id = id_name
-                    text = "Football Club FC"
+                    text = item.name
                     textSize = 24f
                     setTypeface(null, Typeface.BOLD)
                 }.lparams {
@@ -61,7 +63,7 @@ class DetailActivity : AppCompatActivity() {
 
                 textView {
                     padding = dip(16)
-                    text = "Description"
+                    text = item.desc
                 }.lparams {
                     below(id_name)
                 }
