@@ -39,7 +39,7 @@ class MainActivity : AppCompatActivity() {
 
         items.clear()
 
-        for (i in 1..5) {
+        for (i in name.indices) {
             items.add(ItemData(image.getResourceId(i, 0), name[i]))
         }
 
