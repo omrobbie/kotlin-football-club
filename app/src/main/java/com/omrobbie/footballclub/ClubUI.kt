@@ -1,5 +1,7 @@
 package com.omrobbie.footballclub
 
+import android.content.res.Resources
+import android.view.Gravity
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import org.jetbrains.anko.*
@@ -17,12 +19,12 @@ class ClubUI : AnkoComponent<ViewGroup> {
 
             imageView {
                 id = club_image
-                layoutParams = LinearLayout.LayoutParams(50,50)
-            }
+            }.lparams(width = 50.dp, height = 50.dp)
 
             textView {
                 id = club_name
-                layoutParams = LinearLayout.LayoutParams(wrapContent, wrapContent)
+            }.lparams(wrapContent, wrapContent) {
+                gravity = Gravity.CENTER_VERTICAL
             }
         }
     }
