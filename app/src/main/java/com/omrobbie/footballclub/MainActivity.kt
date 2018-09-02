@@ -8,6 +8,9 @@ import org.jetbrains.anko.*
 import org.jetbrains.anko.recyclerview.v7.recyclerView
 
 class MainActivity : AppCompatActivity() {
+    companion object {
+        const val PARCELABLE_ITEM_DATA = "ItemData"
+    }
 
     var items: MutableList<ItemData> = mutableListOf()
 
@@ -26,7 +29,7 @@ class MainActivity : AppCompatActivity() {
                 recyclerView {
                     layoutManager = LinearLayoutManager(context)
                     adapter = ClubAdapter(items) {
-                        toast("Hello, ${it.desc}")
+                        startActivity<DetailActivity>(PARCELABLE_ITEM_DATA to it)
                     }
                 }
             }
