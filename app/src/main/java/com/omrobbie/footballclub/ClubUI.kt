@@ -16,6 +16,7 @@ class ClubUI : AnkoComponent<ViewGroup> {
     override fun createView(ui: AnkoContext<ViewGroup>) = with(ui) {
         verticalLayout {
             orientation = LinearLayout.HORIZONTAL
+            padding = dip(16)
 
             imageView {
                 id = club_image
@@ -25,6 +26,7 @@ class ClubUI : AnkoComponent<ViewGroup> {
                 id = club_name
             }.lparams(wrapContent, wrapContent) {
                 gravity = Gravity.CENTER_VERTICAL
+                margin = dip(10)
             }
         }
     }

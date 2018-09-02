@@ -14,7 +14,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        loadDummy()
+        loadData()
         MainActivityUI(items).setContentView(this)
     }
 
@@ -22,7 +22,6 @@ class MainActivity : AppCompatActivity() {
         override fun createView(ui: AnkoContext<MainActivity>) = with(ui) {
             verticalLayout {
                 lparams(matchParent, wrapContent)
-                padding = dip(16)
 
                 recyclerView {
                     layoutManager = LinearLayoutManager(context)
@@ -34,11 +33,16 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun loadDummy() {
+    fun loadData() {
+        val image = resources.obtainTypedArray(R.array.club_image)
+        val name = resources.getStringArray(R.array.club_name)
+
         items.clear()
 
         for (i in 1..5) {
-            items.add(ItemData(android.R.drawable.ic_delete, "Club $i"))
+            items.add(ItemData(image.getResourceId(i, 0), name[i]))
         }
+
+        image.recycle()
     }
 }
