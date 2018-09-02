@@ -1,6 +1,10 @@
 # Football Club
 Ini adalah Submission 1: Aplikasi Football Club dari kursus online dicoding.com. Menerapkan Kotlin Android Extensions, Anko Layout, dan Anko Commons.
 
+## Preview
+<img src="https://github.com/omrobbie/kotlin-football-club/blob/master/screenshot/preview1.png" width=256/>&nbsp;
+<img src="https://github.com/omrobbie/kotlin-football-club/blob/master/screenshot/preview2.png" width=256/>&nbsp;
+
 ## Submission 1
 Anda sudah melewati beberapa modul pada akademi ini. Beberapa yang sudah Anda pelajari adalah pengenalan dan dasar-dasar Kotlin; membuat aplikasi Android dengan Kotlin; Kotlin Android Extensions; dan Anko. Untuk bisa lanjut ke modul berikutnya, Anda harus mengirimkan proyek dengan beberapa kriteria yang sudah ditentukan.
 
