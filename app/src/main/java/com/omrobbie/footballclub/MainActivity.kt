@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity() {
                 recyclerView {
                     layoutManager = LinearLayoutManager(context)
                     adapter = ClubAdapter(items) {
-                        toast("Hello, ${it.name}")
+                        toast("Hello, ${it.desc}")
                     }
                 }
             }
@@ -36,11 +36,12 @@ class MainActivity : AppCompatActivity() {
     fun loadData() {
         val image = resources.obtainTypedArray(R.array.club_image)
         val name = resources.getStringArray(R.array.club_name)
+        val desc = resources.getStringArray(R.array.club_desc)
 
         items.clear()
 
         for (i in name.indices) {
-            items.add(ItemData(image.getResourceId(i, 0), name[i]))
+            items.add(ItemData(image.getResourceId(i, 0), name[i], desc[i]))
         }
 
         image.recycle()
